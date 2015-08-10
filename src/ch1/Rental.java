@@ -40,4 +40,14 @@ public class Rental {
 
         return amount;
     }
+
+    public int getFrequentRenterPoints() {
+        // 최신물을 이틀 이상 대여하면 2포인트, 아니면 1포인트를 지급
+        if (getMovie().getPriceCode() == Movie.NEW_RELEASE && getDaysRented() > 1) {
+            return 2;
+        }
+        else {
+            return 1;
+        }
+    }
 }

@@ -29,12 +29,7 @@ public class Customer {
         while (rentals.hasMoreElements()) {
             Rental each = rentals.nextElement();
 
-            // 적립 포인트 1 증가
-            frequentRenterPoints++;
-            //NEW_RELEASE를 이틀 이상 대여시 보너스 포인트 지급
-            if (each.getMovie().getPriceCode() == Movie.NEW_RELEASE && each.getDaysRented() > 1) {
-                frequentRenterPoints++;
-            }
+            frequentRenterPoints = each.getFrequentRenterPoints();
 
             // 이번에 대여하는 비디오 정보와 대여료 정보
             result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.getCharge()) + "\n";
