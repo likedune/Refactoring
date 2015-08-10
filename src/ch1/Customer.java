@@ -27,32 +27,15 @@ public class Customer {
         String result = getName() + " 고객님의 대여 기록\n";
 
         while (rentals.hasMoreElements()) {
-            double thisAmount = 0;
             Rental each = rentals.nextElement();
 
             // 비디오의 종류별로 대여료를 계산한다.
-            switch (each.getMovie().getPriceCode()) {
-                case Movie.REGULAR:
-                    thisAmount += 2;
-                    if (each.getDaysRented() > 2) {
-                        thisAmount += (each.getDaysRented() - 2) * 1.5;
-                    }
-                    break;
-                case  Movie.NEW_RELEASE:
-                    thisAmount += each.getDaysRented() * 3;
-                    break;
-                case Movie.CHILDRUNS:
-                    thisAmount += 1.5;
-                    if (each.getDaysRented() > 3) {
-                        thisAmount += (each.getDaysRented() - 3) * 1.5;
-                    }
-                    break;
-            }
+            double thisAmount = amountFor(each);
 
             // 적립 포인트 1 증가
             frequentRenterPoints++;
             //NEW_RELEASE를 이틀 이상 대여시 보너스 포인트 지급
-            if(each.getMovie().getPriceCode() == Movie.NEW_RELEASE && each.getDaysRented() > 1) {
+            if (each.getMovie().getPriceCode() == Movie.NEW_RELEASE && each.getDaysRented() > 1) {
                 frequentRenterPoints++;
             }
 
@@ -65,5 +48,28 @@ public class Customer {
         result += "누적 대여료: " + String.valueOf(totalAmount) + "\n";
         result += "적립 포인트: " + String.valueOf(frequentRenterPoints) + "\n";
         return result;
+    }
+
+    public double amountFor(Rental each) {
+        double thisAmount = 0;
+        switch (each.getMovie().getPriceCode()) {
+            case Movie.REGULAR:
+                thisAmount += 2;
+                if (each.getDaysRented() > 2) {
+                    thisAmount += (each.getDaysRented() - 2) * 1.5;
+                }
+                break;
+            case Movie.NEW_RELEASE:
+                thisAmount += each.getDaysRented() * 3;
+                break;
+            case Movie.CHILDRUNS:
+                thisAmount += 1.5;
+                if (each.getDaysRented() > 3) {
+                    thisAmount += (each.getDaysRented() - 3) * 1.5;
+                }
+                break;
+        }
+
+        return thisAmount;
     }
 }
