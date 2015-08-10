@@ -21,24 +21,34 @@ public class Customer {
     }
 
     public String statement() {
-        double totalAmount = 0;
-        int frequentRenterPoints = 0;
         Enumeration<Rental> rentals = this.rentals.elements();
         String result = getName() + " 고객님의 대여 기록\n";
 
         while (rentals.hasMoreElements()) {
             Rental each = rentals.nextElement();
 
-            frequentRenterPoints = each.getFrequentRenterPoints();
-
             // 이번에 대여하는 비디오 정보와 대여료 정보
             result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.getCharge()) + "\n";
-            // 총 누적 대여료
-            totalAmount += each.getCharge();
         }
 
-        result += "누적 대여료: " + String.valueOf(totalAmount) + "\n";
-        result += "적립 포인트: " + String.valueOf(frequentRenterPoints) + "\n";
+        result += "누적 대여료: " + String.valueOf(getTotalCharge()) + "\n";
+        result += "적립 포인트: " + String.valueOf(getTotalFrequentRenterPoints()) + "\n";
         return result;
+    }
+
+    public double getTotalCharge() {
+        double totalCharge = 0;
+        for (Rental rental : rentals) {
+            totalCharge += rental.getCharge();
+        }
+        return totalCharge;
+    }
+
+    public int getTotalFrequentRenterPoints() {
+        int totalPoint = 0;
+        for (Rental rental : rentals) {
+            totalPoint += rental.getFrequentRenterPoints();
+        }
+        return totalPoint;
     }
 }
