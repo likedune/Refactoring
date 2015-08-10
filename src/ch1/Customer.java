@@ -29,9 +29,6 @@ public class Customer {
         while (rentals.hasMoreElements()) {
             Rental each = rentals.nextElement();
 
-            // 비디오의 종류별로 대여료를 계산한다.
-            double thisAmount = each.getCharge();
-
             // 적립 포인트 1 증가
             frequentRenterPoints++;
             //NEW_RELEASE를 이틀 이상 대여시 보너스 포인트 지급
@@ -40,9 +37,9 @@ public class Customer {
             }
 
             // 이번에 대여하는 비디오 정보와 대여료 정보
-            result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
+            result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(each.getCharge()) + "\n";
             // 총 누적 대여료
-            totalAmount += thisAmount;
+            totalAmount += each.getCharge();
         }
 
         result += "누적 대여료: " + String.valueOf(totalAmount) + "\n";
