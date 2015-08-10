@@ -30,7 +30,7 @@ public class Customer {
             Rental each = rentals.nextElement();
 
             // 비디오의 종류별로 대여료를 계산한다.
-            double thisAmount = amountFor(each);
+            double thisAmount = each.getCharge();
 
             // 적립 포인트 1 증가
             frequentRenterPoints++;
@@ -48,28 +48,5 @@ public class Customer {
         result += "누적 대여료: " + String.valueOf(totalAmount) + "\n";
         result += "적립 포인트: " + String.valueOf(frequentRenterPoints) + "\n";
         return result;
-    }
-
-    public double amountFor(Rental rental) {
-        double amount = 0;
-        switch (rental.getMovie().getPriceCode()) {
-            case Movie.REGULAR:
-                amount += 2;
-                if (rental.getDaysRented() > 2) {
-                    amount += (rental.getDaysRented() - 2) * 1.5;
-                }
-                break;
-            case Movie.NEW_RELEASE:
-                amount += rental.getDaysRented() * 3;
-                break;
-            case Movie.CHILDRUNS:
-                amount += 1.5;
-                if (rental.getDaysRented() > 3) {
-                    amount += (rental.getDaysRented() - 3) * 1.5;
-                }
-                break;
-        }
-
-        return amount;
     }
 }
