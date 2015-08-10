@@ -7,19 +7,30 @@ public class Movie {
     public static final int NEW_RELEASE = 1;
 
     private String title;
-    private int priceCode;
+    private Price price;
 
     public Movie(String title, int priceCode) {
         this.title = title;
-        this.priceCode = priceCode;
+        setPriceCode(priceCode);
     }
 
     public int getPriceCode() {
-        return priceCode;
+        return price.getPriceCode();
     }
 
     public void setPriceCode(int priceCode) {
-        this.priceCode = priceCode;
+        if (priceCode == REGULAR) {
+            price = new RegularPrice();
+        }
+        else if (priceCode == NEW_RELEASE) {
+            price = new NewReleasePrice();
+        }
+        else if (priceCode == CHILDRUNS) {
+            price = new ChildrensPrice();
+        }
+        else {
+            throw new IllegalArgumentException();
+        }
     }
 
     public String getTitle() {
