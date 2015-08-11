@@ -9,16 +9,9 @@ public class ExtractMethod {
     private String name;
 
     public void printOwing() {
-        Enumeration<Double> elements = orderList.elements();
-        double outstanding = 0.0;
-
         printBanner();
 
-        while (elements.hasMoreElements()) {
-            Double each = elements.nextElement();
-            outstanding += each;
-        }
-
+        double outstanding = getOutstanding();
         printDetails(outstanding);
     }
 
@@ -26,6 +19,16 @@ public class ExtractMethod {
         System.out.println("*******************************");
         System.out.println("************고객외상************");
         System.out.println("*******************************");
+    }
+
+    public double getOutstanding() {
+        Enumeration<Double> elements = orderList.elements();
+        double outstanding = 0.0;
+        while (elements.hasMoreElements()) {
+            Double each = elements.nextElement();
+            outstanding += each;
+        }
+        return outstanding;
     }
 
     public void printDetails(double outstanding) {
