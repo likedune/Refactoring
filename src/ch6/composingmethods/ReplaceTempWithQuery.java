@@ -7,17 +7,20 @@ public class ReplaceTempWithQuery {
 
     public double getPirce() {
         final double basePrice = getBasePrice();
-        final double discountRate;
-        if (basePrice > 1000) {
-            discountRate = 0.95;
-        }
-        else {
-            discountRate = 0.98;
-        }
+        final double discountRate = getDiscountRate();
         return basePrice * discountRate;
     }
 
     private double getBasePrice() {
         return quantity * itemPrice;
+    }
+
+    private double getDiscountRate() {
+        if (getBasePrice() > 1000) {
+            return 0.95;
+        }
+        else {
+            return 0.98;
+        }
     }
 }
