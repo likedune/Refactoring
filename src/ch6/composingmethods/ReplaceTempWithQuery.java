@@ -6,12 +6,14 @@ public class ReplaceTempWithQuery {
     private double itemPrice;
 
     public double getPirce() {
-        double basePrice = quantity * itemPrice;
+        final double basePrice = quantity * itemPrice;
+        final double discountRate;
         if (basePrice > 1000) {
-            return basePrice * 0.95;
+            discountRate = 0.95;
         }
         else {
-            return basePrice * 0.98;
+            discountRate = 0.98;
         }
+        return basePrice * discountRate;
     }
 }
