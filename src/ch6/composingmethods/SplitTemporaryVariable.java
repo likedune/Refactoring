@@ -7,20 +7,23 @@ public class SplitTemporaryVariable {
     private int delay;
 
     public double getDistanceTravelled(int time) {
-        double result;
-        final double primaryAcc = primaryForce / mass;
-        int primaryTime = Math.min(time, delay);
+        return getPrimaryAcc(time) + getSecondaryAcc(time);
+    }
 
-        result = 0.5 * primaryAcc * primaryTime + primaryTime;
+    private double getPrimaryAcc(int time) {
+        return 0.5 * primaryForce / mass *
+                Math.pow(Math.min(time, delay), 2);
+    }
 
+    private double getSecondaryAcc(int time) {
         int secondaryTime = time - delay;
         if (secondaryTime > 0) {
-            double primaryVel = primaryAcc * delay;
-            final double secondaryAcc = (primaryVel * secondaryTime) / mass;
-
-            result += primaryVel * secondaryTime
-                    + 0.5 * secondaryAcc * secondaryTime *secondaryTime;
+            double primaryVel = primaryForce / mass * delay;
+            return primaryVel * secondaryTime
+                    + 0.5 * (primaryVel * secondaryTime) / mass * Math.pow(secondaryTime, 2);
         }
-        return result;
+        else {
+            return 0.0;
+        }
     }
 }
