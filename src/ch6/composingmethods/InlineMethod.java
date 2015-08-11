@@ -5,10 +5,8 @@ public class InlineMethod {
     private int numberOfLateDeliveries;
 
     public int getRating() {
-        return moreThanFiveLateDeliveries() ? 2 : 1;
+        return (numberOfLateDeliveries > 5) ? 2 : 1;
     }
-
-    public boolean moreThanFiveLateDeliveries() {
-        return numberOfLateDeliveries > 5;
-    }
+    // 하위 클래스에서 메서드가 재정의 되어 있는지 파악해야 함
+    // 메서드가 얼마나 많이 호출되는지 파악해야 함
 }
