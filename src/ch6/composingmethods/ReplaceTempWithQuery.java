@@ -6,9 +6,7 @@ public class ReplaceTempWithQuery {
     private double itemPrice;
 
     public double getPirce() {
-        final double basePrice = getBasePrice();
-        final double discountRate = getDiscountRate();
-        return basePrice * discountRate;
+        return getBasePrice() * getDiscountRate();
     }
 
     private double getBasePrice() {
