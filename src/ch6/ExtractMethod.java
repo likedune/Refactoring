@@ -19,13 +19,17 @@ public class ExtractMethod {
             outstanding += each;
         }
 
-        System.out.println("고객 이름: " + name);
-        System.out.println("외상액: " + outstanding);
+        printDetails(outstanding);
     }
 
     public void printBanner() {
         System.out.println("*******************************");
         System.out.println("************고객외상************");
         System.out.println("*******************************");
+    }
+
+    public void printDetails(double outstanding) {
+        System.out.println("고객 이름: " + name);
+        System.out.println("외상액: " + outstanding);
     }
 }
