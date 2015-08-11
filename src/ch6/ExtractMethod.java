@@ -12,9 +12,7 @@ public class ExtractMethod {
         Enumeration<Double> elements = orderList.elements();
         double outstanding = 0.0;
 
-        System.out.println("*******************************");
-        System.out.println("************고객외상************");
-        System.out.println("*******************************");
+        printBanner();
 
         while (elements.hasMoreElements()) {
             Double each = elements.nextElement();
@@ -23,5 +21,11 @@ public class ExtractMethod {
 
         System.out.println("고객 이름: " + name);
         System.out.println("외상액: " + outstanding);
+    }
+
+    public void printBanner() {
+        System.out.println("*******************************");
+        System.out.println("************고객외상************");
+        System.out.println("*******************************");
     }
 }
