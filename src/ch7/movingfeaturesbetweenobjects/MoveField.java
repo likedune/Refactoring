@@ -18,7 +18,15 @@ public class MoveField {
         private AccountType type;
 
         public double interestForAmountDays(double amount, int days) {
-            return type.getInterestRate() * amount * days / 365;
+            return getInterestRate() * amount * days / 365;
+        }
+
+        public void setInterestRate(double arg) {
+            type.setInterestRate(arg);
+        }
+
+        public double getInterestRate() {
+            type.getInterestRate();
         }
     }
 }
