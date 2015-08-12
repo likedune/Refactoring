@@ -20,4 +20,19 @@ public class ReplaceMethodWithMethodObject {
             return 0;
         }
     }
+
+    public class Gamma {
+        private Account account;
+        private int inputVal;
+        private int quantity;
+        private int yearToDate;
+
+        public Gamma(Account account, int inputVal, int quantity, int yearToDate) {
+            this.account = account;
+            this.inputVal = inputVal;
+            this.quantity = quantity;
+            this.yearToDate = yearToDate;
+        }
+    }
+
 }
