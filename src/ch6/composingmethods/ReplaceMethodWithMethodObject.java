@@ -18,6 +18,8 @@ public class ReplaceMethodWithMethodObject {
         private int inputVal;
         private int quantity;
         private int yearToDate;
+        private int importantValue1;
+        private int importantValue2;
 
         public Gamma(Account account, int inputVal, int quantity, int yearToDate) {
             this.account = account;
@@ -27,15 +29,17 @@ public class ReplaceMethodWithMethodObject {
         }
 
         public int compute() {
-            int importantValue1 = (inputVal * quantity) + account.delta();
-            int importantValue2 = (inputVal * yearToDate) + 100;
+            importantValue1 = (inputVal * quantity) + account.delta();
+            importantValue2 = (inputVal * yearToDate) + 100;
 
+            return importThings() - (2 * importantValue1);
+        }
+
+        private int importThings() {
             if (yearToDate - importantValue1 > 100) {
                 importantValue2 -= 20;
             }
-            int importantValue3 = importantValue2 * 7;
-
-            return importantValue3 - (2 * importantValue1);
+            return importantValue2 * 7;
         }
     }
 
