@@ -5,15 +5,7 @@ public class ReplaceMethodWithMethodObject {
     public class Account {
 
         public int gamma(int inputVal, int quantity, int yearToDate) {
-            int importantValue1 = (inputVal * quantity) + delta();
-            int importantValue2 = (inputVal * yearToDate) + 100;
-
-            if (yearToDate - importantValue1 > 100) {
-                importantValue2 -= 20;
-            }
-            int importantValue3 = importantValue2 * 7;
-
-            return importantValue3 - (2 * importantValue1);
+            return new Gamma(this, inputVal, quantity, yearToDate).compute();
         }
 
         public int delta() {
@@ -32,6 +24,18 @@ public class ReplaceMethodWithMethodObject {
             this.inputVal = inputVal;
             this.quantity = quantity;
             this.yearToDate = yearToDate;
+        }
+
+        public int compute() {
+            int importantValue1 = (inputVal * quantity) + account.delta();
+            int importantValue2 = (inputVal * yearToDate) + 100;
+
+            if (yearToDate - importantValue1 > 100) {
+                importantValue2 -= 20;
+            }
+            int importantValue3 = importantValue2 * 7;
+
+            return importantValue3 - (2 * importantValue1);
         }
     }
 
