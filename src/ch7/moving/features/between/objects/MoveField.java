@@ -1,4 +1,4 @@
-package ch7.movingfeaturesbetweenobjects;
+package ch7.moving.features.between.objects;
 
 public class MoveField {
 

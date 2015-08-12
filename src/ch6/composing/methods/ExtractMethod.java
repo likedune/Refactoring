@@ -1,4 +1,4 @@
-package ch6.composingmethods;
+package ch6.composing.methods;
 
 import java.util.Vector;
 import java.util.Enumeration;
