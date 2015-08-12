@@ -26,7 +26,7 @@ public class MoveField {
         }
 
         public double getInterestRate() {
-            type.getInterestRate();
+            return type.getInterestRate();
         }
     }
 }
