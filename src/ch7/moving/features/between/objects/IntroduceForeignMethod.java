@@ -6,7 +6,11 @@ public class IntroduceForeignMethod {
 
     public static void main(String[] args) {
         Date date = new Date();
-        
-        Date previousDate = new Date(date.getYear(), date.getMonth(), date.getDate() - 1);
+
+        Date previousDate = getPreviousDate(date);
+    }
+
+    private static Date getPreviousDate(Date date) {
+        return new Date(date.getYear(), date.getMonth(), date.getDate() - 1);
     }
 }
