@@ -53,3 +53,5 @@ public class ExtractClass {
         }
     }
 }
+
+//이것을 반대로하면 Inline Class 클래스 내용 직접 삽입

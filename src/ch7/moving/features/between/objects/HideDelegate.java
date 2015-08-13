@@ -38,3 +38,5 @@ class Person {
         return department.getManager();
     }
 }
+
+//이것을 반대로하면 Remove Middle Man 과잉 중개 메서드 제거
