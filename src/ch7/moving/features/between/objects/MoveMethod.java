@@ -9,14 +9,9 @@ public class MoveMethod {
         public boolean isPremium() {
             return premium;
         }
-    }
 
-    public class Account {
-        private AccountType type;
-        private int daysOverDrawn;
-
-        public double overdraftCharge() {
-            if (type.isPremium()) {
+        public double overdraftCharge(int daysOverDrawn) {
+            if (isPremium()) {
                 double result = 10;
                 if(daysOverDrawn > 7) {
                     result += (daysOverDrawn - 7) * 0.85;
@@ -26,6 +21,15 @@ public class MoveMethod {
             else {
                 return daysOverDrawn * 1.75;
             }
+        }
+    }
+
+    public class Account {
+        private AccountType type;
+        private int daysOverDrawn;
+
+        public double overdraftCharge() {
+            return type.overdraftCharge(daysOverDrawn);
         }
 
         public double bankCharge() {
