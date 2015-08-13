@@ -28,14 +28,10 @@ public class MoveMethod {
         private AccountType type;
         private int daysOverDrawn;
 
-        public double overdraftCharge() {
-            return type.overdraftCharge(daysOverDrawn);
-        }
-
         public double bankCharge() {
             double result = 4.5;
             if (daysOverDrawn > 0) {
-                result += overdraftCharge();
+                result += type.overdraftCharge(daysOverDrawn);
             }
             return result;
         }
