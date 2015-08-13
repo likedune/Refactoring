@@ -7,7 +7,8 @@ public class HideDelegate {
         Person daniel = new Person();
         Department department = new Department(daniel);
         john.setDepartment(department);
-        john.getDepartment().getManager();
+
+        Person manager = john.getManager();
     }
 }
 
@@ -29,11 +30,11 @@ class Person {
 
     public Person() { }
 
-    public Department getDepartment() {
-        return department;
-    }
-
     public void setDepartment(Department department) {
         this.department = department;
+    }
+
+    public Person getManager() {
+        return department.getManager();
     }
 }
