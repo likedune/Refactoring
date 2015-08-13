@@ -2,33 +2,38 @@ package ch7.moving.features.between.objects;
 
 public class HideDelegate {
 
-    public class Department {
+    public static void main(String[] args) {
+        Person john = new Person();
+        Person daniel = new Person();
+        Department department = new Department(daniel);
+        john.setDepartment(department);
+        john.getDepartment().getManager();
+    }
+}
 
-        private String chargeCode;
-        private Person manager;
+class Department {
+    private String chargeCode;
+    private Person manager;
 
-        public Department(Person manager) {
-            this.manager = manager;
-        }
-
-        public Person getManager() {
-            return manager;
-        }
+    public Department(Person manager) {
+        this.manager = manager;
     }
 
-    public class Person {
+    public Person getManager() {
+        return manager;
+    }
+}
 
-        private Department department;
+class Person {
+    private Department department;
 
-        public Person() { }
+    public Person() { }
 
-        public Department getDepartment() {
-            return department;
-        }
-
-        public void setDepartment(Department department) {
-            this.department = department;
-        }
+    public Department getDepartment() {
+        return department;
     }
 
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
 }
