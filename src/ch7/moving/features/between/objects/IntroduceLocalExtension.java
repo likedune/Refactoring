@@ -3,6 +3,10 @@ package ch7.moving.features.between.objects;
 import java.util.Date;
 
 public class IntroduceLocalExtension {
+
+    private static Date nextDay(Date arg) {
+        return new Date(arg.getYear(), arg.getMonth(), arg.getDay() + 1);
+    }
 }
 
 
@@ -16,8 +20,8 @@ class MfDateSub extends Date {
         super(date.getTime());
     }
 
-    public MfDateSub nextDay() {
-        return null;
+    public Date nextDay() {
+        return new Date (getYear(), getMonth(), getDay() + 1);
     }
 
     public int dayOfYear() {
@@ -35,5 +39,9 @@ class MfDateWrap {
 
     public MfDateWrap(Date date) {
         original = date;
+    }
+
+    public int getYear() {
+        return original.getYear();
     }
 }
