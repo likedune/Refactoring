@@ -9,8 +9,12 @@ class Range {
     private int high;
 
     public Range(int low, int high) {
-        setLow(low);
-        setHigh(high);
+        initializer(low, high);
+    }
+
+    private void initializer(int low, int high) {
+        this.low = low;
+        this.high = high;
     }
 
     public boolean includes(int arg) {
