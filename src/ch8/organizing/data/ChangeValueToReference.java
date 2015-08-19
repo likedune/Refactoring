@@ -23,11 +23,7 @@ class Order1 {
     private Customer1 customer;
 
     public Order1(String customerName) {
-        this.customer = new Customer1(customerName);
-    }
-
-    public void setCustomer(String customerName) {
-        this.customer = new Customer1(customerName);
+        this.customer = Customer1.createCustomer(customerName);
     }
 
     public String getCustomer() {
@@ -39,8 +35,12 @@ class Customer1 {
 
     private final String name;
 
-    public Customer1(String name) {
+    private Customer1(String name) {
         this.name = name;
+    }
+
+    public static Customer1 createCustomer(String name) {
+        return new Customer1(name);
     }
 
     public String getName() {
