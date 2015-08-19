@@ -20,18 +20,18 @@ public class ReplaceDataValueWithObject {
 
 class Order {
 
-    private String customer;
+    private Customer customer;
 
-    public Order(String customer) {
-        this.customer = customer;
+    public Order(String customerName) {
+        this.customer = new Customer(customerName);
     }
 
-    public void setCustomer(String customer) {
-        this.customer = customer;
+    public void setCustomer(String customerName) {
+        this.customer = new Customer(customerName);
     }
 
     public String getCustomer() {
-        return customer;
+        return customer.getName();
     }
 }
 
