@@ -1,5 +1,6 @@
 package ch8.organizing.data;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 
@@ -15,6 +16,20 @@ public class ChangeValueToReference {
             }
         }
         return result;
+    }
+
+    public static void main(String[] args) {
+        String name = "daniel";
+        Order1 order1 = new Order1(name);
+        Collection<Order1> orderList = new ArrayList<Order1>();
+        orderList.add(order1);
+        orderList.add(new Order1("jason"));
+
+        int result = numberOfOrdersFor(orderList, "daniel");
+        System.out.println(result);
+
+        int result1 = numberOfOrdersFor(orderList, "jay");
+        System.out.println(result1);
     }
 }
 
