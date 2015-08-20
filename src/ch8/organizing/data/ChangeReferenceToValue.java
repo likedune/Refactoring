@@ -19,4 +19,20 @@ class Currency {
     public String getCode() {
         return code;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Currency) {
+            Currency other = (Currency)obj;
+            return code.equals(other.getCode());
+        }
+        else {
+            return false;
+        }
+    }
+
+    @Override
+    public int hashCode() {
+        return code.hashCode();
+    }
 }
