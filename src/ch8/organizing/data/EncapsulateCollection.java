@@ -46,11 +46,26 @@ class Course {
 class Person {
     private Set<Course> courses;
 
+    public Person() {
+        courses = new HashSet<Course>();
+    }
+
     public Set<Course> getCourses() {
         return courses;
     }
 
+    public void addCourse(Course course) {
+        courses.add(course);
+    }
+
+    public void removeCourse(Course course) {
+        courses.remove(course);
+    }
+
     public void setCourses(Set<Course> courses) {
-        this.courses = courses;
+        Iterator<Course> itr = courses.iterator();
+        while (itr.hasNext()) {
+            addCourse(itr.next());
+        }
     }
 }
