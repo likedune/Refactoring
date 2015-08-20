@@ -13,25 +13,25 @@ public class ReplaceArrayToObject {
 }
 
 class Performance {
-    private String[] row;
+    private String name;
+    private int wins;
 
     public Performance() {
-        row = new String[3];
     }
 
     public void setName(String name) {
-        row[0] = name;
+        this.name = name;
     }
 
     public String getName() {
-        return row[0];
+        return name;
     }
 
     public void setWins(String wins) {
-        row[1] = wins;
+        this.wins = Integer.parseInt(wins);
     }
 
     public int getWins() {
-        return Integer.parseInt(row[1]);
+        return wins;
     }
 }
