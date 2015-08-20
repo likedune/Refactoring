@@ -14,14 +14,7 @@ public class EncapsulateCollection {
 //        kent.getCourses().add(new Course("Refactoring", true));
         kent.addCourse(new Course("Refactoring", true));
 
-        int count = 0;
-        Iterator<Course> itr = kent.getCourses().iterator();
-        while (itr.hasNext()) {
-            Course course = itr.next();
-            if(course.isAdvanced()) {
-                count ++;
-            }
-        }
+        int count = kent.getNumberOfAdvancedCourses();
         System.out.println(count);
     }
 }
@@ -68,5 +61,15 @@ class Person {
         while (itr.hasNext()) {
             addCourse(itr.next());
         }
+    }
+
+    public int getNumberOfAdvancedCourses() {
+        int count = 0;
+        for (Course course : courses) {
+            if (course.isAdvanced()) {
+                count++;
+            }
+        }
+        return count;
     }
 }
