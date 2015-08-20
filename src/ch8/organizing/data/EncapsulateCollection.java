@@ -8,10 +8,11 @@ public class EncapsulateCollection {
 
     public static void main(String[] args) {
         Person kent = new Person();
-        Set<Course> set = new HashSet<Course>();
-        set.add(new Course("Scala Programming", false));
-        set.add(new Course("Software Architecture", true));
-        kent.setCourses(set);
+        kent.addCourse(new Course("Scala Programming", false));
+        kent.addCourse(new Course("Software Architecture", true));
+
+//        kent.getCourses().add(new Course("Refactoring", true));
+        kent.addCourse(new Course("Refactoring", true));
 
         int count = 0;
         Iterator<Course> itr = kent.getCourses().iterator();
