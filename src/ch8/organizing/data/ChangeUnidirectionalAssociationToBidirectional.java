@@ -16,6 +16,10 @@ public class ChangeUnidirectionalAssociationToBidirectional {
         public Set friendOrders() {
             return orders;
         }
+
+        public void addOrder(Order order) {
+            order.setCustomer(this);
+        }
     }
 
     public class Order {
