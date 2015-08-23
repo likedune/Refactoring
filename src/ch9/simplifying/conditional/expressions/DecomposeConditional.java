@@ -21,4 +21,16 @@ public class DecomposeConditional {
             charge = quantity * summerRate;
         }
     }
+
+    private boolean notSummer() {
+        return date.before(SUMMER) || date.after(WINTER);
+    }
+
+    private double summerCharge(int quantity) {
+        return quantity * summerRate;
+    }
+
+    private double winterCharge(int quantity) {
+        return quantity * winterRate + winterServiceCharge;
+    }
 }
