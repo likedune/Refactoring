@@ -9,14 +9,14 @@ public class Person {
 
     private BloodGroup bloodGroup;
 
-    public Person(int bloodGroup) {
-        this.bloodGroup = BloodGroup.code(bloodGroup);
+    public Person(BloodGroup bloodGroup) {
+        this.bloodGroup = bloodGroup;
     }
 
-    public void setBloodGroup(int bloodGroup) {
-        this.bloodGroup = BloodGroup.code(bloodGroup);
+    public void setBloodGroup(BloodGroup bloodGroup) {
+        this.bloodGroup = bloodGroup;
     }
-
+    
     public int getBloodGroupCode() {
         return bloodGroup.getCode();
     }
