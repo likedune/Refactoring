@@ -8,13 +8,7 @@ public class ConsolidateConditionalExpression {
 
 
     public double disabilityAmount() {
-        if (seniority > 2) {
-            return 0;
-        }
-        if (monthDisabled > 12) {
-            return 0;
-        }
-        if (isPartTime) {
+        if ((seniority > 2) || (monthDisabled > 12) || (isPartTime)) {
             return 0;
         }
         else {
