@@ -8,12 +8,11 @@ public class ConsolidateDuplicateConditionalFragments {
     public void priceSender() {
         if (isSpecialDeal()) {
             total = price * 0.95;
-            send();
         }
         else {
             total = price * 1.0;
-            send();
         }
+        send();
     }
 
     private boolean isSpecialDeal() {
