@@ -2,26 +2,28 @@ package ch9.simplifying.conditional.expressions.replaceConditionalWithPolymorphi
 
 public class Employee {
 
-    private int type;
-
     private int monthlySalary;
     private int commission;
     private int bonus;
-
-    public int payAmount() {
-        switch (getType()) {
-            case EmployeeType.ENGINEER:
-                return monthlySalary + commission + bonus;
-            case EmployeeType.SALESMAN:
-                return monthlySalary;
-            case EmployeeType.MANAGER:
-                return monthlySalary + bonus;
-            default:
-                throw new RuntimeException();
-        }
-    }
+    private EmployeeType employeeType;
 
     public int getType() {
-        return type;
+        return employeeType.getEmployeeTypeCode();
+    }
+
+    public int getMonthlySalary() {
+        return monthlySalary;
+    }
+
+    public int getCommission() {
+        return commission;
+    }
+
+    public int getBonus() {
+        return bonus;
+    }
+
+    public int payAmount() {
+        return employeeType.payAmount(this);
     }
 }
