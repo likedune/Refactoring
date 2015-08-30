@@ -7,10 +7,6 @@ public class Employee {
     private int bonus;
     private EmployeeType employeeType;
 
-    public int getType() {
-        return employeeType.getEmployeeTypeCode();
-    }
-
     public int getMonthlySalary() {
         return monthlySalary;
     }

@@ -4,8 +4,6 @@ public abstract class EmployeeType {
 
     private int employeeTypeCode;
 
-    public abstract int getEmployeeTypeCode();
-
     public abstract int payAmount(Employee emp);
 
 }
