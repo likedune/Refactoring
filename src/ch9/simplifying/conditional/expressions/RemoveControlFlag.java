@@ -2,10 +2,10 @@ package ch9.simplifying.conditional.expressions;
 
 public class RemoveControlFlag {
 
-    public void checkSecurity(String[] peoples) {
+    public void checkSecurity(String[] people) {
 
-        for (int i = 0; i < peoples.length; i++) {
-            if (peoples[i].equals("Don") || peoples[i].equals("John")) {
+        for (int i = 0; i < people.length; i++) {
+            if (people[i].equals("Don") || people[i].equals("John")) {
                 sendAlert();
                 return;
             }
