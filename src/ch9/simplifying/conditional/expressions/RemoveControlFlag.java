@@ -5,13 +5,9 @@ public class RemoveControlFlag {
     public void checkSecurity(String[] peoples) {
 
         for (int i = 0; i < peoples.length; i++) {
-            if (peoples[i].equals("Don")) {
+            if (peoples[i].equals("Don") || peoples[i].equals("John")) {
                 sendAlert();
-                break;
-            }
-            if (peoples[i].equals("John")) {
-                sendAlert();
-                break;
+                return;
             }
         }
     }
