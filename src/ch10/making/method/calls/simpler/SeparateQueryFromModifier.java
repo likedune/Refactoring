@@ -2,18 +2,18 @@ package ch10.making.method.calls.simpler;
 
 public class SeparateQueryFromModifier {
 
-    private void sendAlert() {
-        System.out.println("find!");
+    private void sendAlert(String[] people) {
+        if (!foundPerson(people).equals("")) {
+            System.out.println("find!");
+        }
     }
-    
-    private String foundMiscreant(String[] people) {
+
+    private String foundPerson(String[] people) {
         for (int i = 0; i < people.length; i++) {
             if (people[i].equals("Don")) {
-                sendAlert();
                 return "Don";
             }
             if (people[i].equals("John")) {
-                sendAlert();
                 return "John";
             }
         }
@@ -21,7 +21,8 @@ public class SeparateQueryFromModifier {
     }
 
     public void checkSecurity(String[] people) {
-        String miscreant = foundMiscreant(people);
+        String miscreant = foundPerson(people);
+        sendAlert(people);
         someCode(miscreant);
     }
 
