@@ -1,14 +1,14 @@
 package ch9.simplifying.conditional.expressions.replaceConditionalWithPolymorphism;
 
-public class Engineer extends EmployeeType {
+public class Manager extends EmployeeType {
 
     @Override
     public int getEmployeeTypeCode() {
-        return 1;
+        return 3;
     }
 
     @Override
     public int payAmount(Employee emp) {
-        return emp.getMonthlySalary() + emp.getBonus() + emp.getCommission();
+        return emp.getMonthlySalary() + emp.getBonus();
     }
 }
