@@ -7,25 +7,22 @@ public class ReplaceNestedConditionalWithGuardClauses {
     private boolean isRetired;
 
     public double getPayAmount() {
-        double result = 0;
-
         if (isDead) {
-            result = deadAmount();
+            return deadAmount();
         }
         else {
             if (isSeparated) {
-                result = separatedAmount();
+                return separatedAmount();
             }
             else {
                 if (isRetired) {
-                    result = retiredAmount();
+                    return retiredAmount();
                 }
                 else {
-                    result = normalAmount();
+                    return normalAmount();
                 }
             }
         }
-        return result;
     }
 
     private double deadAmount() {
