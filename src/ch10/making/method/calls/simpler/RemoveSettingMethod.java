@@ -6,11 +6,11 @@ public class RemoveSettingMethod {
         private String id;
 
         public Account(String id) {
-            this.id = "First" +id;
+            initializer(id);
         }
 
-        public void setId(String id) {
-            this.id = id;
+        public void initializer(String id) {
+            this.id = "First" + id;
         }
     }
 
@@ -18,7 +18,7 @@ public class RemoveSettingMethod {
         private double rate;
 
         public InterestAccount(String id, double rate) {
-            setId(id);
+            super(id);
             this.rate = rate;
         }
     }
