@@ -6,18 +6,11 @@ public class ReplaceParameterWithMethod {
     private int itemPrice;
 
     public double getPrice() {
-        int basePrice = quantity * itemPrice;
-
-        double finalPrice = discountedPrice(basePrice);
-        return finalPrice;
-    }
-
-    private double discountedPrice(int basePrice) {
         if (distinguishDiscountLevel() == 2) {
-            return basePrice * 0.9;
+            return getBasePrice() * 0.9;
         }
         else {
-            return basePrice * 0.95;
+            return getBasePrice() * 0.95;
         }
     }
 
@@ -28,5 +21,9 @@ public class ReplaceParameterWithMethod {
         else {
             return 1;
         }
+    }
+
+    private int getBasePrice() {
+        return quantity * itemPrice;
     }
 }
